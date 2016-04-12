@@ -18,25 +18,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fnK-Zd-cmR">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fnK-Zd-cmR">
                                 <rect key="frame" x="250" y="10" width="100" height="100"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.092281879189999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="41y-9b-IDe"/>
                                     <constraint firstAttribute="height" constant="100" id="fWK-5T-0gu"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cBo-A4-b8s">
-                                <rect key="frame" x="250" y="150" width="100" height="100"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cBo-A4-b8s">
+                                <rect key="frame" x="250" y="130" width="100" height="100"/>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.092281879189999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="OPL-gF-of8"/>
                                     <constraint firstAttribute="width" constant="100" id="WB5-Gx-qaD"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rF0-IC-zfH">
-                                <rect key="frame" x="250" y="310" width="100" height="100"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="250" y="250" width="100" height="100"/>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.092281879189999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="ITN-Zo-PEO"/>
                                     <constraint firstAttribute="width" constant="100" id="kwy-Vr-MR5"/>
@@ -44,7 +44,7 @@
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="IwV-DY-IWd">
                                 <rect key="frame" x="100" y="475" width="100" height="50"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.092281879189999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="MGC-uL-N7x"/>
                                     <constraint firstAttribute="height" constant="50" id="Njv-ol-VJL"/>
@@ -52,28 +52,39 @@
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="m2T-Fj-fGG">
                                 <rect key="frame" x="400" y="475" width="100" height="50"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.092281879189999999" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="gM5-yM-43Q"/>
                                     <constraint firstAttribute="height" constant="50" id="tVZ-0w-tEE"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0dG-Ap-YMs">
+                                <rect key="frame" x="263" y="370" width="74" height="77"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="77" id="Vba-pb-VyO"/>
+                                    <constraint firstAttribute="width" constant="74" id="vBD-Vz-E29"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="fnK-Zd-cmR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3d1-Mu-TtU"/>
+                            <constraint firstItem="0dG-Ap-YMs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7OK-sR-ksU"/>
+                            <constraint firstItem="rF0-IC-zfH" firstAttribute="top" secondItem="cBo-A4-b8s" secondAttribute="bottom" constant="20" id="BXp-q2-ht0"/>
+                            <constraint firstItem="0dG-Ap-YMs" firstAttribute="top" secondItem="rF0-IC-zfH" secondAttribute="bottom" constant="20" id="Gyv-wb-Bfp"/>
                             <constraint firstItem="rF0-IC-zfH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Oeq-PC-mtY"/>
-                            <constraint firstItem="cBo-A4-b8s" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="2:3" id="X9d-A7-jFc"/>
                             <constraint firstItem="IwV-DY-IWd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="5:3" id="al3-a6-mTj"/>
                             <constraint firstItem="m2T-Fj-fGG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="5:3" id="bbi-lX-YdH"/>
+                            <constraint firstItem="cBo-A4-b8s" firstAttribute="top" secondItem="fnK-Zd-cmR" secondAttribute="bottom" constant="20" id="heC-kF-Jz8"/>
                             <constraint firstItem="m2T-Fj-fGG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="3:2" id="m1h-zg-Cs4"/>
-                            <constraint firstItem="rF0-IC-zfH" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1.2:1" id="tcu-ke-9NN"/>
                             <constraint firstItem="cBo-A4-b8s" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="u94-Ey-JpR"/>
                             <constraint firstItem="IwV-DY-IWd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" multiplier="1:2" id="vkA-nT-mbU"/>
                             <constraint firstItem="fnK-Zd-cmR" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="1:5" id="xG0-Yp-suK"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="displayButton" destination="0dG-Ap-YMs" id="aQL-Pi-cTE"/>
                         <outlet property="displayImageView" destination="fnK-Zd-cmR" id="UKf-Kb-RjX"/>
                         <outlet property="displayImageView1" destination="cBo-A4-b8s" id="ddd-EM-tpb"/>
                         <outlet property="displayImageView2" destination="rF0-IC-zfH" id="nmh-3m-ADU"/>

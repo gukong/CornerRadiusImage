@@ -16,6 +16,8 @@
 		7778E1F51CBB4C0200270B25 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7778E1F31CBB4C0200270B25 /* LaunchScreen.storyboard */; };
 		7778E1FF1CBB4CC900270B25 /* CornerRadiusImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 7778E1FE1CBB4CC900270B25 /* CornerRadiusImage.m */; };
 		7778E2021CBB765300270B25 /* UIImage+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = 7778E2011CBB765300270B25 /* UIImage+CornerRadius.m */; };
+		77A069681CBC9A19009C0596 /* UIImageView+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A069671CBC9A19009C0596 /* UIImageView+CornerRadius.m */; };
+		77A0696B1CBC9A31009C0596 /* UIButton+CornerRadius.m in Sources */ = {isa = PBXBuildFile; fileRef = 77A0696A1CBC9A31009C0596 /* UIButton+CornerRadius.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,10 @@
 		7778E1FE1CBB4CC900270B25 /* CornerRadiusImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CornerRadiusImage.m; sourceTree = "<group>"; };
 		7778E2001CBB765300270B25 /* UIImage+CornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+CornerRadius.h"; sourceTree = "<group>"; };
 		7778E2011CBB765300270B25 /* UIImage+CornerRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+CornerRadius.m"; sourceTree = "<group>"; };
+		77A069661CBC9A19009C0596 /* UIImageView+CornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+CornerRadius.h"; sourceTree = "<group>"; };
+		77A069671CBC9A19009C0596 /* UIImageView+CornerRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+CornerRadius.m"; sourceTree = "<group>"; };
+		77A069691CBC9A31009C0596 /* UIButton+CornerRadius.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+CornerRadius.h"; sourceTree = "<group>"; };
+		77A0696A1CBC9A31009C0596 /* UIButton+CornerRadius.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+CornerRadius.m"; sourceTree = "<group>"; };
 		B984BBC8CC6E200D7C1D9E31 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		E2003F827DEAA90A141D821B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,6 +115,10 @@
 				7778E1FE1CBB4CC900270B25 /* CornerRadiusImage.m */,
 				7778E2001CBB765300270B25 /* UIImage+CornerRadius.h */,
 				7778E2011CBB765300270B25 /* UIImage+CornerRadius.m */,
+				77A069661CBC9A19009C0596 /* UIImageView+CornerRadius.h */,
+				77A069671CBC9A19009C0596 /* UIImageView+CornerRadius.m */,
+				77A069691CBC9A31009C0596 /* UIButton+CornerRadius.h */,
+				77A0696A1CBC9A31009C0596 /* UIButton+CornerRadius.m */,
 			);
 			path = CornerRadiusImage;
 			sourceTree = "<group>";
@@ -244,9 +254,11 @@
 			files = (
 				7778E1ED1CBB4C0200270B25 /* ViewController.m in Sources */,
 				7778E1EA1CBB4C0200270B25 /* AppDelegate.m in Sources */,
+				77A0696B1CBC9A31009C0596 /* UIButton+CornerRadius.m in Sources */,
 				7778E2021CBB765300270B25 /* UIImage+CornerRadius.m in Sources */,
 				7778E1FF1CBB4CC900270B25 /* CornerRadiusImage.m in Sources */,
 				7778E1E71CBB4C0200270B25 /* main.m in Sources */,
+				77A069681CBC9A19009C0596 /* UIImageView+CornerRadius.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

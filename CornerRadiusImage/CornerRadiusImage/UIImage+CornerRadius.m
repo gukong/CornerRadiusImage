@@ -59,16 +59,16 @@
         boundingSize.height -= borderWidth;
         boundingSize.width -= borderWidth;
         
-        CGFloat originX = (size.width-boundingSize.width)/2;
-        originX = originX < 0 ? 0 : originX;
-        
-        CGFloat originY = (size.height-boundingSize.height)/2;
-        originY = originY < 0 ? 0 : originY;
-        
         CGSize visibleSize = size;
         if (size.width+size.height > boundingSize.width+boundingSize.height) {
             visibleSize = boundingSize;
         }
+        
+        CGFloat originX = (size.width - visibleSize.width)/2;
+        originX = originX < 0 ? 0 : originX;
+    
+        CGFloat originY = (size.height - visibleSize.height)/2;
+        originY = originY < 0 ? 0 : originY;
         
         [borderColor setStroke];
         UIBezierPath *bezierPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(originX, originY, visibleSize.width, visibleSize.height) cornerRadius:cornerRadius];

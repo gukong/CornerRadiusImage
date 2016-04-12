@@ -34,36 +34,50 @@ static CornerRadiusImage *_sharedInstance;
 }
 
 #pragma mark - 同步返回图片
-- (UIImage * __nullable)convertImage:(UIImage * __nonnull)image displayBoundSize:(CGSize)boundSize cornerRadius:(CGFloat)cornerRadius cacheKey:(NSString * __nonnull)cacheKey {
-    return [self convertImage:image displayBoundSize:boundSize cornerRadius:cornerRadius toCache:YES cacheKey:cacheKey];
-}
-
-- (UIImage * __nullable)convertImage:(UIImage * __nonnull)image displayBoundSize:(CGSize)boundSize cornerRadius:(CGFloat)cornerRadius toCache:(BOOL)toCache cacheKey:(NSString * __nullable)cacheKey {
-    UIImage *converImage = [image imageAspectFillBoundingSize:boundSize cornerRadius:cornerRadius];
-    if (toCache && cacheKey.length > 0 && converImage) {
-        [_imageCache setObject:converImage forKey:cacheKey];
+- (UIImage * __nullable)convertImage:(UIImage * __nonnull)image displayBoundSize:(CGSize)boundSize cornerRadius:(CGFloat)cornerRadius cacheKey:(NSString * __nullable)cacheKey {
+    if (cacheKey.length > 0) {
+        UIImage *convertImage = [_imageCache objectForKey:cacheKey];
+        if (convertImage == nil) {
+            convertImage = [image imageAspectFillBoundingSize:boundSize cornerRadius:cornerRadius];
+            [_imageCache setObject:convertImage forKey:cacheKey];
+        }
+        return convertImage;
     }
-    return converImage;
+    else {
+        UIImage *converImage = [image imageAspectFillBoundingSize:boundSize cornerRadius:cornerRadius];
+        return converImage;
+    }
 }
 
 #pragma mark - 异步返回图片
-- (void)convertImage:(UIImage * __nonnull)image displayBoundSize:(CGSize)boundSize cornerRadius:(CGFloat)cornerRadius cacheKey:(NSString * __nonnull)cacheKey completion:(CRIConvertCompletion __nullable)completion {
-    [self convertImage:image displayBoundSize:boundSize cornerRadius:cornerRadius toCache:YES cacheKey:cacheKey completion:completion];
-}
-
-- (void)convertImage:(UIImage * __nonnull)image displayBoundSize:(CGSize)boundSize cornerRadius:(CGFloat)cornerRadius toCache:(BOOL)toCache cacheKey:(NSString * __nullable)cacheKey completion:(CRIConvertCompletion __nullable)completion {
+- (void)convertImage:(UIImage * __nonnull)image displayBoundSize:(CGSize)boundSize cornerRadius:(CGFloat)cornerRadius cacheKey:(NSString * __nullable)cacheKey completion:(CRIConvertCompletion __nullable)completion {
     dispatch_async(_imageQueue, ^{
-        UIImage *converImage = [image imageAspectFillBoundingSize:boundSize cornerRadius:cornerRadius];
-        if (toCache && cacheKey.length > 0 && converImage) {
-            [_imageCache setObject:converImage forKey:cacheKey];
-        }
-        
-        if (converImage) {
-            [self callBackMainQueue:completion image:converImage error:nil];
+        if (cacheKey.length > 0) {
+            UIImage *convertImage = [_imageCache objectForKey:cacheKey];
+            if (convertImage) {
+                [self callBackMainQueue:completion image:convertImage error:nil];
+            }
+            else {
+                convertImage = [image imageAspectFillBoundingSize:boundSize cornerRadius:cornerRadius];
+                if (convertImage) {
+                    [_imageCache setObject:convertImage forKey:cacheKey];
+                    [self callBackMainQueue:completion image:image error:nil];
+                }
+                else {
+                    NSError *error = [NSError errorWithDomain:@"nate.cornerRadiusImage" code:-1101 userInfo:@{@"ErrorMsg":@"convert image error"}];
+                    [self callBackMainQueue:completion image:nil error:error];
+                }
+            }
         }
         else {
-            NSError *error = [NSError errorWithDomain:@"nate.cornerRadiusImage" code:-1101 userInfo:@{@"ErrorMsg":@"convert image error"}];
-            [self callBackMainQueue:completion image:nil error:error];
+            UIImage *convertImage = [image imageAspectFillBoundingSize:boundSize cornerRadius:cornerRadius];
+            if (convertImage) {
+                [self callBackMainQueue:completion image:convertImage error:nil];
+            }
+            else {
+                NSError *error = [NSError errorWithDomain:@"nate.cornerRadiusImage" code:-1101 userInfo:@{@"ErrorMsg":@"convert image error"}];
+                [self callBackMainQueue:completion image:nil error:error];
+            }
         }
     });
 }
@@ -81,9 +95,11 @@ static CornerRadiusImage *_sharedInstance;
         }
         
         [[SDWebImageDownloader sharedDownloader] downloadImageWithURL:imageUrl options:SDWebImageDownloaderHighPriority progress:nil completed:^(UIImage *image, NSData *data, NSError *error, BOOL finished) {
+            
             if (imageUrl && !error) {
-                [_imageCache setObject:image forKey:cachekey];
-                [self callBackMainQueue:completion image:image error:nil];
+                UIImage *convertImage = [image imageAspectFillBoundingSize:boundSize cornerRadius:cornerRadius];
+                [_imageCache setObject:convertImage forKey:cachekey];
+                [self callBackMainQueue:completion image:convertImage error:nil];
             }
             else {
                 [self callBackMainQueue:completion image:nil error:error];
@@ -100,7 +116,9 @@ static CornerRadiusImage *_sharedInstance;
 
 - (void)callBackMainQueue:(CRIConvertCompletion __nonnull)completion image:(UIImage *)image error:(NSError *)error {
     dispatch_async(dispatch_get_main_queue(), ^{
-        completion(image, error);
+        if (completion) {
+            completion(image, error);
+        }
     });
 }
 
