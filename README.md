@@ -31,4 +31,4 @@
     
 ```
 
-![image](screenshot.png =400x)
+![image](https://github.com/gukong/CornerRadiusImage/blob/master/screenshot.png =400x)
