@@ -31,4 +31,4 @@
     
 ```
 
-![image](/screenshot.png =400x)
+![image](/screenshot.png)
